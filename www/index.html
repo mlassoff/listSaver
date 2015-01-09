@@ -65,7 +65,7 @@
             { 
                 var reader = new FileReader();
                  reader.onloadend = function(evt) {
-                    list = evt.target.result;
+                    list = 0;
                     displayList();
                  };
                 reader.readAsText(file);   
@@ -73,7 +73,7 @@
             
             function addToList()
             {
-                itemToAdd = document.getElementById('listItem').value;   
+                var itemToAdd = document.getElementById('listItem').value;   
                 if(itemToAdd != "" && itemToAdd != null){
                     list += itemToAdd + ",";
                     displayList();
@@ -83,7 +83,7 @@
             
             function displayList()
             {
-                out="";
+                var out="";
                 var listArray = $.csv.toArray(list);
                 listArray.pop();
                 for(var i=0; i < listArray.length; i++)
@@ -127,7 +127,7 @@
             
             function onError(e)
             {
-                ("Error: " + e.code);   
+                alert("Error: " + e.code);   
             }
             
         </script>
